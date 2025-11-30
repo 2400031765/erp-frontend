@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #5b0a0a;
+}
+
+.top-header {
+    background: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logout-btn {
+    background: #8b0000;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.dashboard-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    padding: 40px 20px;
+}
+
+.dash-card {
+    width: 260px;
+    background: white;
+    padding: 25px;
+    text-align: center;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+.dash-card img {
+    width: 80px;
+    margin-bottom: 15px;
+}
+
+.dash-card:hover {
+    transform: scale(1.05);
+}
+
+#admin-content {
+    background: #fff;
+    width: 80%;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 12px;
+}
+/* ---- ATTENDANCE CARD STYLING ---- */
+.admin-section-card {
+    width: 85%;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.25);
+}
+
+.section-title {
+    margin-top: 0;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.section-desc {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.label-title {
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.dropdown-box {
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 6px;
+    border: 1px solid #aaa;
+    margin-left: 10px;
+}
+
+.attendance-table-box {
+    margin-top: 20px;
+}
+
+.placeholder-text {
+    color: #555;
+}
+
+.attendance-table-box table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.attendance-table-box th,
+.attendance-table-box td {
+    padding: 12px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+.attendance-table-box th {
+    background: #f7f7f7;
+    font-weight: bold;
+}
+
+.save-btn {
+    padding: 6px 12px;
+    background: #8b0000;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.save-btn:hover {
+    opacity: 0.8;
+}

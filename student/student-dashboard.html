@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Dashboard - EduERP</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+
+<body>
+
+<header class="topbar">
+    <h1 style="color:white; margin-left:20px;">EduERP</h1>
+    <div class="topbar-right">
+        <span style="color:white;">Welcome Student</span>
+        <button onclick="logout()">Logout</button>
+    </div>
+</header>
+
+<!-- DASHBOARD WRAPPER (your CSS expects this!) -->
+<div class="dashboard-wrapper">
+
+    <h2 class="dashboard-title">Student Dashboard</h2>
+
+    <!-- GRID CARDS -->
+    <div class="grid-cards">
+
+        <div class="dash-card" onclick="location.href='student-attendance.html'">
+            <img src="../assets/icons/attendance.png" class="card-icon">
+            <h3>Attendance</h3>
+            <p>View your attendance progress</p>
+        </div>
+
+        <div class="dash-card" onclick="location.href='student-marks.html'">
+            <img src="../assets/icons/marks.png" class="card-icon">
+            <h3>Marks</h3>
+            <p>Track your exam results</p>
+        </div>
+
+        <div class="dash-card" onclick="location.href='student-cgpa.html'">
+            <img src="../assets/icons/cgpa.png" class="card-icon">
+            <h3>CGPA / GPA</h3>
+            <p>Check your academic performance</p>
+        </div>
+
+        <div class="dash-card" onclick="location.href='student-courses.html'">
+            <img src="../assets/icons/courses.png" class="card-icon">
+            <h3>Courses Registered</h3>
+            <p>Subjects you are enrolled in</p>
+        </div>
+
+        <div class="dash-card" onclick="location.href='student-timetable.html'">
+            <img src="../assets/icons/timetable.png" class="card-icon">
+            <h3>Timetable</h3>
+            <p>Your daily class schedule</p>
+        </div>
+
+    </div>
+</div>
+
+<script>
+function logout() {
+    window.location.href = "../index.html";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<h2>Take Attendance</h2>
+
+<label>Choose Course</label>
+<select id="attendanceCourse"></select>
+
+<label style="margin-left:20px;">Select Date</label>
+<input type="date" id="attendanceDate">
+
+<h3 style="margin-top:20px;">Student List</h3>
+<div id="attendanceStudents"></div>
+
+<button onclick="saveAttendance()" class="save-btn">Save Attendance</button>
+
+<h3 style="margin-top:40px;">Saved Attendance Records</h3>
+
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Course</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody id="attendanceRecords"></tbody>
+</table>
+
+<script>
+    loadAttendanceUI();
+</script>

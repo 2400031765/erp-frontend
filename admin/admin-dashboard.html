@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EduERP Admin</title>
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+
+<body>
+
+<header class="top-header">
+    <h2>EduERP Admin</h2>
+    <button class="logout-btn" onclick="window.location.href='../index.html'">Logout</button>
+</header>
+
+<section class="dashboard-container">
+
+    <div class="dash-card" onclick="loadPage('manage-students.html')">
+        <img src="../assets/icons/manage-students.png">
+        <h3>Manage Students</h3>
+        <p>Add, edit or view student details.</p>
+    </div>
+
+    <div class="dash-card" onclick="loadPage('manage-courses.html')">
+        <img src="../assets/icons/courses.png">
+        <h3>Manage Courses</h3>
+        <p>Modify or create course records.</p>
+    </div>
+
+    <div class="dash-card" onclick="loadPage('attendance.html')">
+        <img src="../assets/icons/attendance.png">
+        <h3>Attendance</h3>
+        <p>Update subject-wise attendance.</p>
+    </div>
+
+    <div class="dash-card" onclick="loadPage('marks.html')">
+        <img src="../assets/icons/marks.png">
+        <h3>Marks</h3>
+        <p>Enter or modify student marks.</p>
+    </div>
+
+    <div class="dash-card" onclick="loadPage('timetable.html')">
+        <img src="../assets/icons/timetable.png">
+        <h3>Timetable</h3>
+        <p>Prepare or modify timetable.</p>
+    </div>
+
+</section>
+
+<section id="admin-content"></section>
+
+<script src="../js/admin-data.js"></script>
+<script src="../js/admin.js"></script>
+
+</body>
+</html>

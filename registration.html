@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>User Registration</title>
+
+<link rel="stylesheet" href="css/registration.css">
+</head>
+
+<body>
+
+<div class="register-box">
+    <h2>Create Account</h2>
+
+   <input type="text" id="name" placeholder="Full Name *">
+<input type="email" id="email" placeholder="Email *">
+<input type="text" id="username" placeholder="Username *">
+<input type="password" id="password" placeholder="Create Password *">
+<input type="password" id="confirm" placeholder="Confirm Password *">
+
+
+    <!-- REQUIRED: hidden role = student -->
+    <input type="hidden" id="role" value="student">
+
+    <!-- REQUIRED: student grade -->
+    <select id="grade" class="grade-select">
+        <option value="">Select Grade *</option>
+        <option value="6">Grade 6</option>
+        <option value="7">Grade 7</option>
+        <option value="8">Grade 8</option>
+        <option value="9">Grade 9</option>
+        <option value="10">Grade 10</option>
+        <option value="11">Grade 11</option>
+        <option value="12">Grade 12</option>
+    </select>
+
+    <!-- Register Button -->
+    <button onclick="registerUser()">Register</button>
+
+    <div class="register-links">
+        <a href="index.html">Already have an account? Login</a>
+    </div>
+</div>
+
+</body>
+
+<script src="js/students-data.js"></script>
+<script src="js/register.js"></script>
+
+</html>

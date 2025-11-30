@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EduERP Login</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- LEFT SIDE -->
+    <div class="left-section">
+        <div class="login-box">
+            <h2>Welcome to EduERP</h2>
+            <p>Login to continue</p>
+
+            <select id="role">
+                <option>Select Role *</option>
+                <option>student</option>
+                <option>admin</option>
+            </select>
+
+            <input type="text" id="username" placeholder="Enter Username *">
+            <input type="password" id="password" placeholder="Enter Password *">
+
+            <button id="loginBtn">Login</button>
+
+            <a href="forgot-password.html">Forgot Password?</a>
+            <a href="registration.html">Don't have an account? Register</a>
+        </div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right-section">
+        <img src="assets/lms.png" alt="LMS">
+    </div>
+
+</div>
+
+<!-- Load student accounts FIRST -->
+<script src="js/students-data.js"></script>
+
+<!-- Load admin accounts (NEW FILE YOU MUST CREATE) -->
+<script src="js/admin-data.js"></script>
+
+<!-- Load login behaviour -->
+<script src="js/login.js"></script>
+
+
+<!-- ============================
+     SAFE ADMIN LOGIN HANDLER
+     (Does NOT modify any existing code)
+     ============================ -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const loginBtn = document.getElementById("loginBtn");
+
+    loginBtn.addEventListener("click", () => {
+        const role = document.getElementById("role").value.toLowerCase();
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value.trim();
+
+        /* ADMIN LOGIN (Separate — student login untouched) */
+        if (role === "admin") {
+
+            const adminUser = adminAccounts.find(a =>
+                a.username === username && a.password === password
+            );
+
+            if (adminUser) {
+                window.location.href = "admin/admin-dashboard.html";
+                return;
+            }
+
+            alert("Invalid admin credentials");
+            return;
+        }
+
+        // Student login handled by login.js → untouched
+    });
+
+});
+</script>
+
+</body>
+<script src="js/admin-data.js"></script>
+<script src="js/students-data.js"></script>
+<script src="js/login.js"></script>
+
+</html>

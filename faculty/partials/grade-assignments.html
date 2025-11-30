@@ -1,0 +1,28 @@
+<h2>Grade Assignments</h2>
+
+<label>Student ID</label>
+<input id="ga-id" class="input">
+
+<label>Marks</label>
+<input id="ga-marks" class="input" type="number">
+
+<button onclick="addGrade()">Submit Grade</button>
+
+<ul id="ga-list"></ul>
+
+<script>
+let gaGrades = [];
+
+function addGrade() {
+    const id = document.getElementById("ga-id").value;
+    const marks = document.getElementById("ga-marks").value;
+
+    gaGrades.push({ id, marks });
+
+    let list = document.getElementById("ga-list");
+    list.innerHTML = "";
+    gaGrades.forEach(g =>
+        list.innerHTML += `<li>${g.id} — ${g.marks} marks</li>`
+    );
+}
+</script>

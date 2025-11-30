@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Faculty Dashboard - EduERP</title>
+    <link rel="stylesheet" href="../css/faculty.css">
+</head>
+
+<body>
+
+<header class="erp-header">
+    <h1 class="erp-title">EduERP</h1>
+
+    <div class="header-right">
+        <span class="welcome-text">Welcome Faculty</span>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+</header>
+
+<section class="dashboard-wrapper">
+
+    <div class="grid-cards">
+
+        <div class="dashboard-card" onclick="loadPage('partials/manage-students.html')">
+            <img src="../assets/icons/manage-students.png" class="dashboard-icon">
+            <h3>Manage Students</h3>
+            <p>Add, edit or view student details.</p>
+        </div>
+
+        <div class="dashboard-card" onclick="loadPage('partials/manage-courses.html')">
+            <img src="../assets/icons/courses.png" class="dashboard-icon">
+            <h3>Manage Courses</h3>
+            <p>Modify or create course records.</p>
+        </div>
+
+        <div class="dashboard-card" onclick="loadPage('partials/attendance.html')">
+            <img src="../assets/icons/attendance.png" class="dashboard-icon">
+            <h3>Attendance</h3>
+            <p>Take student attendance.</p>
+        </div>
+
+        <div class="dashboard-card" onclick="loadPage('partials/marks.html')">
+            <img src="../assets/icons/marks.png" class="dashboard-icon">
+            <h3>Marks</h3>
+            <p>Enter or modify marks.</p>
+        </div>
+
+        <div class="dashboard-card" onclick="loadPage('partials/schedule-classes.html')">
+            <img src="../assets/icons/timetable.png" class="dashboard-icon">
+            <h3>Timetable</h3>
+            <p>View weekly class timetable.</p>
+        </div>
+
+    </div>
+
+    <div id="content-area" class="content-area"></div>
+
+</section>
+
+<script src="../js/faculty.js"></script>
+
+</body>
+</html>

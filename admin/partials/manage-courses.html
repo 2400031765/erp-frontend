@@ -1,0 +1,41 @@
+<h2>Manage Courses</h2>
+
+<button onclick="openCourseForm()">+ Add Course</button>
+
+<table id="coursesTable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Course Name</th>
+            <th>Grade</th>
+            <th>Teacher</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<!-- Modal -->
+<div id="course-modal" class="modal">
+    <div class="modal-box">
+
+        <h3>Course Form</h3>
+
+        <form id="courseForm">
+            <input type="hidden" id="courseId">
+
+            <label>Name</label>
+            <input type="text" id="courseName">
+
+            <label>Grade</label>
+            <input type="text" id="courseGrade">
+
+            <label>Teacher</label>
+            <input type="text" id="courseTeacher">
+
+            <button type="button" onclick="saveCourse()">Save</button>
+            <button type="button" onclick="closeCourseForm()">Cancel</button>
+        </form>
+
+    </div>
+</div>

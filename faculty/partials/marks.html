@@ -1,0 +1,22 @@
+<h2>Marks</h2>
+
+<input id="m-id" placeholder="Student ID">
+<input id="m-marks" type="number" placeholder="Marks">
+
+<button onclick="addMarks()">Submit</button>
+
+<ul id="marks-list"></ul>
+
+<script>
+let marks = [];
+
+function addMarks() {
+    let id = document.getElementById("m-id").value;
+    let m = document.getElementById("m-marks").value;
+
+    marks.push({ id, m });
+
+    document.getElementById("marks-list").innerHTML =
+        marks.map(x => `<li>${x.id} — ${x.m}</li>`).join("");
+}
+</script>

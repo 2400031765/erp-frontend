@@ -1,0 +1,38 @@
+<div class="content-box">
+    <h2>Manage Students</h2>
+
+    <div class="form-row">
+        <label>Student ID</label>
+        <input id="sid" class="input">
+
+        <label>Student Name</label>
+        <input id="sname" class="input">
+
+        <label>Department</label>
+        <input id="sdept" class="input">
+
+        <label>Year</label>
+        <input id="syear" class="input" type="number" min="1" max="4">
+
+        <button class="add-btn" onclick="addStudent()">Add Student</button>
+    </div>
+
+    <h3>Student List</h3>
+
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Dept</th>
+                <th>Year</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="student-table"></tbody>
+    </table>
+</div>
+
+<script>
+    loadStudents();
+</script>

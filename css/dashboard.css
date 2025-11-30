@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial';
+    background: #5a0d0d;
+}
+
+/* --- Dashboard container --- */
+.dashboard-wrapper {
+    width: 90%;
+    margin: auto;
+    padding-top: 30px;
+}
+
+.dashboard-title {
+    color: #fff;
+    text-align: center;
+    font-size: 34px;
+    font-weight: 700;
+}
+
+/* --- Grid same as admin --- */
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* --- Card same size as admin --- */
+.dash-card {
+    background: #fff;
+    padding: 25px;
+    text-align: center;
+    border-radius: 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
+}
+
+.dash-card:hover {
+    transform: scale(1.05);
+}
+
+/* --- Icon FIX (size now correct) --- */
+.card-icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 15px;
+}
+
+/* --- Content area for partials --- */
+.content-area {
+    background: #fff;
+    padding: 25px;
+    width: 95%;
+    margin: 40px auto;
+    border-radius: 15px;
+    min-height: 320px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+.topbar {
+    background: #531212f5;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.topbar-right button {
+    background: white;
+    color: #531212f5;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+}
