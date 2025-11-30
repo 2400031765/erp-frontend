@@ -26,12 +26,19 @@ function loadPage(page) {
         .then(html => {
             document.getElementById("content-area").innerHTML = html;
 
+            // Re-run module initializer after partial loads
+            if (page.includes("manage-students")) loadStudents();
+            if (page.includes("attendance")) loadAttendanceUI();
+            if (page.includes("marks")) loadMarksUI();
+            if (page.includes("schedule-classes")) loadFacultyTimetable();
+
             window.scrollTo({
                 top: document.getElementById("content-area").offsetTop - 20,
                 behavior: "smooth"
             });
         });
 }
+
 
 function logout() {
     window.location.href = "../index.html";
@@ -156,6 +163,165 @@ function loadSavedAttendance() {
             <td>${r.course}</td>
             <td>${r.date}</td>
             <td>${r.status}</td>
+        </tr>
+    `).join("");
+}
+// =========================================================
+//  MARKS MODULE
+// =========================================================
+
+// Load dropdowns
+function loadMarksUI() {
+
+    let students = JSON.parse(localStorage.getItem("students")) || [];
+    let courses = JSON.parse(localStorage.getItem("courses")) || [];
+    let marks = JSON.parse(localStorage.getItem("studentMarks")) || [];
+
+    let studentSelect = document.getElementById("marksStudent");
+    let courseSelect = document.getElementById("marksCourse");
+    let table = document.getElementById("marksTable");
+
+    if (!studentSelect || !courseSelect || !table) return;
+
+    // Load students
+    studentSelect.innerHTML = students
+        .map(s => `<option value="${s.id}">${s.id} - ${s.name}</option>`)
+        .join("");
+
+    // Load courses
+    courseSelect.innerHTML = courses
+        .map(c => `<option value="${c}">${c}</option>`)
+        .join("");
+
+    loadMarksTable();
+}
+
+// Save marks
+function saveMarks() {
+    let studentID = document.getElementById("marksStudent").value;
+    let course = document.getElementById("marksCourse").value;
+    let marks = document.getElementById("marksValue").value;
+
+    if (!marks) {
+        alert("Please enter marks!");
+        return;
+    }
+
+    let students = JSON.parse(localStorage.getItem("students")) || [];
+    let marksData = JSON.parse(localStorage.getItem("studentMarks")) || [];
+
+    let student = students.find(s => s.id === studentID);
+
+    marksData.push({
+        id: studentID,
+        name: student.name,
+        course: course,
+        marks: marks
+    });
+
+    localStorage.setItem("studentMarks", JSON.stringify(marksData));
+
+    alert("Marks saved!");
+    loadMarksTable();
+}
+
+// Display marks
+function loadMarksTable() {
+    let table = document.getElementById("marksTable");
+    let marksData = JSON.parse(localStorage.getItem("studentMarks")) || [];
+
+    if (!table) return;
+
+    table.innerHTML = marksData
+        .map(m => `
+            <tr>
+                <td>${m.id}</td>
+                <td>${m.name}</td>
+                <td>${m.course}</td>
+                <td>${m.marks}</td>
+            </tr>
+        `)
+        .join("");
+}
+// ===============================
+// MARKS MODULE
+// ===============================
+
+// Load students + courses + saved marks
+function loadMarksUI() {
+    console.log("Loading marks UI...");
+
+    let students = JSON.parse(localStorage.getItem("students")) || [];
+    let courses = JSON.parse(localStorage.getItem("courses")) || [];
+    let marks = JSON.parse(localStorage.getItem("studentMarks")) || [];
+
+    let studentSelect = document.getElementById("marksStudent");
+    let courseSelect = document.getElementById("marksCourse");
+    let table = document.getElementById("marksTable");
+
+    // If page not loaded yet
+    if (!studentSelect || !courseSelect || !table) {
+        console.log("❌ Marks UI not ready yet.");
+        return;
+    }
+
+    // Load student dropdown
+    studentSelect.innerHTML = students
+        .map(s => `<option value="${s.id}">${s.id} - ${s.name}</option>`)
+        .join("");
+
+    // Load courses dropdown
+    courseSelect.innerHTML = courses
+        .map(c => `<option value="${c}">${c}</option>`)
+        .join("");
+
+    // Load marks table
+    loadMarksTable();
+}
+
+
+// Save marks for one student
+function saveMarks() {
+    let studentID = document.getElementById("marksStudent").value;
+    let course = document.getElementById("marksCourse").value;
+    let marksValue = document.getElementById("marksValue").value;
+
+    if (!marksValue) {
+        alert("Enter marks!");
+        return;
+    }
+
+    let students = JSON.parse(localStorage.getItem("students")) || [];
+    let marks = JSON.parse(localStorage.getItem("studentMarks")) || [];
+
+    let student = students.find(s => s.id === studentID);
+
+    marks.push({
+        id: student.id,
+        name: student.name,
+        course: course,
+        marks: marksValue
+    });
+
+    localStorage.setItem("studentMarks", JSON.stringify(marks));
+    loadMarksTable();
+    alert("Marks saved!");
+}
+
+
+// Display saved marks in table
+function loadMarksTable() {
+    let table = document.getElementById("marksTable");
+    let marks = JSON.parse(localStorage.getItem("studentMarks")) || [];
+
+    if (!table) return;
+
+    table.innerHTML = marks.map(m => `
+        <tr>
+            <td>${m.id}</td>
+            <td>${m.name}</td>
+            <td>${m.course}</td>
+            <td>${m.marks}</td>
         </tr>
     `).join("");
 }

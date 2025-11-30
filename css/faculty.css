@@ -148,3 +148,19 @@ html, body {
     position: relative;
     z-index: 10;
 }
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.styled-table th, .styled-table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.form-row select {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #aaa;
+}
